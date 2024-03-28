@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33723.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "TOPO_lab3", "TOPO_lab3.pyproj", "{C8D323F2-1C48-4CE4-AE06-686FD4945964}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C8D323F2-1C48-4CE4-AE06-686FD4945964}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8D323F2-1C48-4CE4-AE06-686FD4945964}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6BC5A091-9099-4763-ABA1-3BD2F71C3F15}
+	EndGlobalSection
+EndGlobal
