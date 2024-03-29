@@ -1,11 +1,26 @@
 import pygame as pg
+from App.Const import *
+from App.Const import RIGHT_COLOR
 from App.Grid import Grid
 
-WIDTH, HEIGHT = 640, 640
-BG_COLOR = (229, 223, 189)
+grid = Grid()
+
+def drawGrid(window):
+    for i in range(4):
+        for j in range(4):
+            color = WRONG_COLOR
+
+            if grid.getCellValue(i, j) == 0:
+                color = BG_COLOR
+            elif grid.getCellValue(i, j) == i * 4 + j + 1:
+                color = RIGHT_COLOR
+            
+            x = CELL_SIZE * j + SPACE_SIZE * (j + 1)
+            y = CELL_SIZE * i + SPACE_SIZE * (i + 1)
+            
+            pg.draw.rect(window, color, (x, y, CELL_SIZE, CELL_SIZE))
 
 def main():
-    grid = Grid()
 
     grid.shuffleCells()
 
@@ -20,6 +35,8 @@ def main():
                 exit()
 
         window.fill(BG_COLOR)
+
+        drawGrid(window)
 
         pg.display.update()
  
