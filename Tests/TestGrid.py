@@ -52,3 +52,8 @@ class TestGrid(unittest.TestCase):
         grid = Grid()
 
         self.assertIs(grid.moveCell(3, 3), False)
+
+    def testGridMoveCellFalse(self):
+        grid = Grid()
+
+        self.assertIs(grid.moveCell(0, 0), False)

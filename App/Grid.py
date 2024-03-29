@@ -19,4 +19,8 @@ class Grid(object):
     def moveCell(self, x, y):
         if self.getCellValue(x, y) == 0:
             return False
+        #todo реализовать проверку на возможность сдвига €чейки и еЄ сдвиг
+        elif x == 0 and y == 0:
+            return False
+
         return True
