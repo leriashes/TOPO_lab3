@@ -24,3 +24,8 @@ class TestCell(unittest.TestCase):
         cell = Cell()
         cell.SetValue(5)
         self.assertEqual(5, cell.GetValue())
+
+    def testCellClassCreationWithParametersCheckValue(self):
+        value = 15
+        cell = Cell(value)
+        self.assertEqual(value, cell.GetValue())
