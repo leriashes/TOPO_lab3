@@ -6,7 +6,7 @@ class Grid(object):
         self.cells = []
 
         for i in range(16):
-            self.cells.append(Cell((i + 1) % 16, [i / 4, i % 4]))
+            self.cells.append(Cell((i + 1) % 16, [i // 4, i % 4]))
     
     def getCellValue(self, x:int, y:int):
         return self.cells[x * 4 + y].getValue()
