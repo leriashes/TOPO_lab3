@@ -1,9 +1,11 @@
+from pickle import TRUE
 import pygame as pg
 from App.Const import *
 from App.Const import RIGHT_COLOR
 from App.Grid import Grid
 
 grid = Grid()
+mouseReady = True
 
 def drawGrid(window):
     for i in range(4):
@@ -31,6 +33,28 @@ def drawGrid(window):
                 else:
                     window.blit(number, (x + 23, y + 22))
 
+def update():
+    mousePos = pg.mouse.get_pos()
+    mouseClick = pg.mouse.get_pressed()[0]
+
+    mx, my = mousePos[0], mousePos[1]
+    global mouseReady
+    
+    if not mouseClick:
+        mouseReady = True
+
+    if mouseClick and mouseReady:
+        for i in range(4):
+            for j in range(4):
+                x = CELL_SIZE * j + SPACE_SIZE * (j + 1)
+                y = CELL_SIZE * i + SPACE_SIZE * (i + 1)
+                
+                if (x <= mx <= x + CELL_SIZE) and (y <= my <= y + CELL_SIZE):
+                    result = grid.moveCell(i, j)
+                    mouseReady = False
+        
+
+
 def main():
 
     grid.shuffleCells()
@@ -49,7 +73,14 @@ def main():
 
         drawGrid(window)
 
+        update()
+
         pg.display.update()
+
+        keys = pg.key.get_pressed()
+        
+        if keys[pg.K_ESCAPE]:
+            break
  
 if __name__ == "__main__":
     main()
