@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>c8d323f2-1c48-4ce4-ae06-686fd4945964</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>RunTests.py</StartupFile>
+    <StartupFile>App\Main.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>

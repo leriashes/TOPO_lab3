@@ -1,6 +1,9 @@
+from App.Grid import Grid
+
 def main():
-    #todo реализовать тело функции
-    pass
+    grid = Grid()
+
+    grid.shuffleCells()
  
 if __name__ == "__main__":
     main()
