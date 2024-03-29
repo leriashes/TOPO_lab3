@@ -6,3 +6,7 @@ class TestCell(unittest.TestCase):
     def testCellClassCreation(self):
         cell = Cell()
         self.assertIsNotNone(cell)
+
+    def testCellGetValue(self):
+        cell = Cell()
+        self.assertIsNotNone(cell.GetValue())
