@@ -24,6 +24,7 @@
   <ItemGroup>
     <Compile Include="App\Cell.py" />
     <Compile Include="App\Grid.py" />
+    <Compile Include="App\Main.py" />
     <Compile Include="RunTests.py" />
     <Compile Include="Tests\TestCell.py" />
     <Compile Include="Tests\TestGrid.py" />
