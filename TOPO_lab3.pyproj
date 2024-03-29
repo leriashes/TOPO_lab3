@@ -23,6 +23,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="App\Cell.py" />
+    <Compile Include="App\Const.py" />
     <Compile Include="App\Grid.py" />
     <Compile Include="App\Main.py" />
     <Compile Include="RunTests.py" />
