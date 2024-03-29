@@ -79,3 +79,9 @@ class TestGrid(unittest.TestCase):
         grid.moveCell(x, y)
         
         self.assertEqual(grid.getCellValue(x, y), 0)
+
+    def testGridGetEmptyCellCoords(self):
+        grid = Grid()
+        coords = grid.getEmptyCellCoords()
+
+        self.assertEqual(grid.getCellValue(coords[0], coords[1]), 0)

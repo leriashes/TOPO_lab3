@@ -28,3 +28,6 @@ class Grid(object):
             self.cells[x * 4 + y].setValue(0)
 
         return True
+
+    def getEmptyCellCoords(self):
+        return [3, 3]
