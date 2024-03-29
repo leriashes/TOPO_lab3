@@ -19,3 +19,8 @@ class TestCell(unittest.TestCase):
         cell = Cell()
         coords = cell.GetCoords()
         self.assertEqual(len(coords), 2)
+
+    def testCellSetValue(self):
+        cell = Cell()
+        cell.SetValue(5)
+        self.assertEqual(5, cell.GetValue())
