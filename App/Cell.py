@@ -1,7 +1,6 @@
 class Cell(object):
-    value = 1
 
-    def __init__(self, value=0):
+    def __init__(self, value=0, coords=[0,0]):
         self.value = value
         #todo реализовать сохранение координат €чейки
 

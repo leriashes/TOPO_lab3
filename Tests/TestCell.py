@@ -29,3 +29,8 @@ class TestCell(unittest.TestCase):
         value = 15
         cell = Cell(value)
         self.assertEqual(value, cell.GetValue())
+
+    def testCellClassCreationWithParametersCheckCoords(self):
+        coords = [0, 0]
+        cell = Cell(coords=coords)
+        self.assertEqual(coords, cell.GetCoords())
