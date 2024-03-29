@@ -92,3 +92,12 @@ class TestGrid(unittest.TestCase):
         coords = grid.getEmptyCellCoords()
 
         self.assertEqual(grid.getCellValue(coords[0], coords[1]), 0)
+
+    def testGridMoveCellEmptyAfterShuffle(self):
+        grid = Grid()
+        grid.shuffleCells()
+        x, y = grid.getEmptyCellCoords()
+
+        grid.moveCell(x, y)
+        
+        self.assertEqual(grid.getCellValue(x, y), 0)
