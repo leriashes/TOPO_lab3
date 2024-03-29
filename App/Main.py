@@ -9,16 +9,27 @@ def drawGrid(window):
     for i in range(4):
         for j in range(4):
             color = WRONG_COLOR
+            font = pg.font.Font('Fonts/UbuntuMono-Regular.ttf', 52)
 
-            if grid.getCellValue(i, j) == 0:
+            value = grid.getCellValue(i, j)
+
+            if value == 0:
                 color = BG_COLOR
-            elif grid.getCellValue(i, j) == i * 4 + j + 1:
+            elif value == i * 4 + j + 1:
                 color = RIGHT_COLOR
             
             x = CELL_SIZE * j + SPACE_SIZE * (j + 1)
             y = CELL_SIZE * i + SPACE_SIZE * (i + 1)
             
             pg.draw.rect(window, color, (x, y, CELL_SIZE, CELL_SIZE))
+
+            if value > 0:
+                number = font.render(str(value), True, TEXT_COLOR)
+            
+                if 1 <= value <= 9:
+                    window.blit(number, (x + 36, y + 22))
+                else:
+                    window.blit(number, (x + 23, y + 22))
 
 def main():
 
