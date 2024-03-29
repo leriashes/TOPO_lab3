@@ -85,3 +85,10 @@ class TestGrid(unittest.TestCase):
         coords = grid.getEmptyCellCoords()
 
         self.assertEqual(grid.getCellValue(coords[0], coords[1]), 0)
+
+    def testGridGetEmptyCellCoordsAfterShuffle(self):
+        grid = Grid()
+        grid.shuffleCells()
+        coords = grid.getEmptyCellCoords()
+
+        self.assertEqual(grid.getCellValue(coords[0], coords[1]), 0)

@@ -30,4 +30,6 @@ class Grid(object):
         return True
 
     def getEmptyCellCoords(self):
-        return [3, 3]
+        for cell in self.cells:
+            if cell.getValue() == 0:
+                return cell.getCoords()
