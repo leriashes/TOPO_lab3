@@ -4,13 +4,13 @@ class Cell(object):
         self.value = value
         #todo реализовать сохранение координат €чейки
 
-    def GetValue(self):
+    def getValue(self):
         return self.value
 
-    def SetValue(self, value):
+    def setValue(self, value):
         self.value = value
 
-    def GetCoords(self):
+    def getCoords(self):
         #todo реализовать возврат координат €чейки
         return [0, 0]
 
