@@ -6,6 +6,6 @@ class Cell(object):
 
     def GetCoords(self):
         #todo реализовать возврат координат €чейки
-        return 1
+        return [0, 0]
 
 

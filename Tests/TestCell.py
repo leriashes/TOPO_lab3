@@ -14,3 +14,8 @@ class TestCell(unittest.TestCase):
     def testCellGetCoords(self):
         cell = Cell()
         self.assertIsNotNone(cell.GetCoords())
+
+    def testCellGetCoordsReturnTwoValues(self):
+        cell = Cell()
+        coords = cell.GetCoords()
+        self.assertEqual(len(coords), 2)
