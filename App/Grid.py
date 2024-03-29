@@ -17,4 +17,6 @@ class Grid(object):
         self.cells[15].setValue(1)
 
     def moveCell(self, x, y):
+        if self.getCellValue(x, y) == 0:
+            return False
         return True
