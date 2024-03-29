@@ -11,6 +11,7 @@
     <OutputPath>.</OutputPath>
     <Name>TOPO_lab3</Name>
     <RootNamespace>TOPO_lab3</RootNamespace>
+    <TestFramework>unittest</TestFramework>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,8 +22,10 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="App\Cell.py" />
     <Compile Include="App\Grid.py" />
     <Compile Include="RunTests.py" />
+    <Compile Include="Tests\TestCell.py" />
     <Compile Include="Tests\TestGrid.py" />
     <Compile Include="Tests\__init__.py" />
   </ItemGroup>
