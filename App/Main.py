@@ -52,8 +52,6 @@ def update():
                 if (x <= mx <= x + CELL_SIZE) and (y <= my <= y + CELL_SIZE):
                     result = grid.moveCell(i, j)
                     mouseReady = False
-        
-
 
 def main():
 

@@ -42,3 +42,8 @@ class TestGrid(unittest.TestCase):
                 dif += 1
              
         self.assertGreater(dif, 0)
+
+    def testGridMoveCellTrue(self):
+        grid = Grid()
+
+        self.assertIs(grid.moveCell(3, 2), True)

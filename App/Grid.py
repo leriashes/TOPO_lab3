@@ -15,3 +15,6 @@ class Grid(object):
         #todo реализовать перемешивание €чеек
         self.cells[0].setValue(0)
         self.cells[15].setValue(1)
+
+    def moveCell(self, x, y):
+        return True
