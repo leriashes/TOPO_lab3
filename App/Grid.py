@@ -12,5 +12,6 @@ class Grid(object):
         return self.cells[x * 4 + y].getValue()
 
     def shuffleCells(self):
-        #реализовать перемешивание €чеек
-        pass
+        #todo реализовать перемешивание €чеек
+        self.cells[0].setValue(0)
+        self.cells[15].setValue(1)

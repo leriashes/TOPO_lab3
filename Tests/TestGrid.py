@@ -28,4 +28,17 @@ class TestGrid(unittest.TestCase):
                 self.assertNotEqual(values[j], cellValue)
 
             values.append(cellValue)
+
+    def testGridShuffleCells(self):
+        grid = Grid()
+        grid.shuffleCells()
+
+        dif = 0
+
+        for i in range(16):
+            cellValue = grid.getCellValue(i // 4, i % 4)
+
+            if (cellValue != (i + 1) % 16):
+                dif += 1
              
+        self.assertGreater(dif, 0)
