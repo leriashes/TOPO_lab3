@@ -64,3 +64,11 @@ class TestGrid(unittest.TestCase):
         grid.moveCell(x, y)
         
         self.assertEqual(grid.getCellValue(x, y), 0)
+
+    def testGridMoveCellFalseResult(self):
+        grid = Grid()
+        x, y = 0, 0
+        value = grid.getCellValue(x, y)
+        grid.moveCell(x, y)
+        
+        self.assertEqual(grid.getCellValue(x, y), value)
