@@ -12,5 +12,20 @@ class TestGrid(unittest.TestCase):
         grid.shuffleCells()
         
         for i in range(16):
-            cellValue = grid.getCellValue(i / 4, i % 4)
+            cellValue = grid.getCellValue(i // 4, i % 4)
             self.assertIs(0 <= cellValue <= 15, True)
+
+    def testGridShuffleCellsNoSameValues(self):
+        grid = Grid()
+        grid.shuffleCells()
+
+        values = []
+
+        for i in range(16):
+            cellValue = grid.getCellValue(i // 4, i % 4)
+
+            for j in range(len(values)):
+                self.assertNotEqual(values[j], cellValue)
+
+            values.append(cellValue)
+             

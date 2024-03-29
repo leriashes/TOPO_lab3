@@ -1,14 +1,16 @@
+from App.Cell import Cell
+
 class Grid(object):
-    #todo реализовать класс игровой сетки
     
-    def getCellValue(self, x, y):
-        #todo реализовать поиск €чейки и возврат еЄ значени€
-        return 0
+    def __init__(self):
+        self.cells = []
+
+        for i in range(16):
+            self.cells.append(Cell((i + 1) % 16, [i / 4, i % 4]))
+    
+    def getCellValue(self, x:int, y:int):
+        return self.cells[x * 4 + y].getValue()
 
     def shuffleCells(self):
-        #todo реализовать перемешивание €чеек
+        #реализовать перемешивание €чеек
         pass
-
-
-
-
