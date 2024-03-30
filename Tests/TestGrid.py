@@ -251,3 +251,9 @@ class TestGrid(unittest.TestCase):
         values[15] = 12
 
         self.assertIs(grid.checkCompletable(values), True)
+
+    def testGridCheckCompletableReverse(self):
+        grid = Grid()
+        values = [16 - i for i in range (1, 17)]
+
+        self.assertIs(grid.checkCompletable(values), False)
