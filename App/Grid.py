@@ -31,7 +31,11 @@ class Grid(object):
 
     def shuffleCells(self):
         values = [i % 16 for i in range(1, 17)]
-        random.shuffle(values)
+        
+        while True:
+            random.shuffle(values)
+            if self.checkCompletable(values):
+                break
 
         for i in range(16):
             self.cells[i].setValue(values[i])
