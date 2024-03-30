@@ -116,3 +116,18 @@ class TestGrid(unittest.TestCase):
 
         self.assertEqual(grid.getCellValue(x, y), 0)
 
+    def testGridMoveCellTrueRightAfterShuffleMove(self):
+        grid = Grid()
+        grid.shuffleCells()
+        x, y = grid.getEmptyCellCoords()
+
+        while y == 3:
+            grid.shuffleCells()
+            x, y = grid.getEmptyCellCoords()
+
+        y += 1
+        value = grid.getCellValue(x, y)
+        grid.moveCell(x, y)
+
+        self.assertEqual(grid.getCellValue(x, y - 1), value)
+
