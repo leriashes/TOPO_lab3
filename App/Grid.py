@@ -17,17 +17,19 @@ class Grid(object):
         self.cells[15].setValue(1)
 
     def moveCell(self, x, y):
-        if self.getCellValue(x, y) == 0:
-            return False
-        #todo реализовать проверку на возможность сдвига €чейки
-        elif x == 0 and y == 0:
-            return False
+        value = self.getCellValue(x, y)
 
-        #todo реализовать сдвиг €чейки
-        if x == 3 and y == 2:
-            self.cells[x * 4 + y].setValue(0)
+        if value == 0:
+            return False
+        else:
+            emptx, empty = self.getEmptyCellCoords()
 
-        return True
+            if x == emptx and (y == empty + 1 or y == empty - 1) or y == empty and (x == emptx + 1 or x == emptx - 1):
+                self.cells[x * 4 + y].setValue(0)
+                self.cells[emptx * 4 + empty].setValue(value)
+                return True
+            else:
+                return False
 
     def getEmptyCellCoords(self):
         for cell in self.cells:
