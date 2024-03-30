@@ -13,7 +13,21 @@ class Grid(object):
         return self.cells[x * 4 + y].getValue()
 
     def checkCompletable(self, values):
-        return False
+        N = 0
+        for i in range(16):
+            if values[i] != 0:
+                k = 0
+                
+                for j in range(15 - i):
+                    if values[i + j + 1] != 0:
+                        if values[i + j + 1] < values[i]:
+                            k += 1
+                N += k
+
+            elif values[i] == 0:
+                N += (i // 4) + 1
+
+        return N % 2 == 0
 
     def shuffleCells(self):
         values = [i % 16 for i in range(1, 17)]
