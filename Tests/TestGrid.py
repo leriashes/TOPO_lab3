@@ -234,4 +234,10 @@ class TestGrid(unittest.TestCase):
         values[14] = 14
         values[13] = 15
 
+        self.assertIs(grid.checkCompletable(values), False)
+
+    def testGridCheckCompletable(self):
+        grid = Grid()
+        values = [i % 16 for i in range (1, 17)]
+
         grid.checkCompletable(values)
