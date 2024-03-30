@@ -38,3 +38,7 @@ class Grid(object):
         for cell in self.cells:
             if cell.getValue() == 0:
                 return cell.getCoords()
+
+    def checkWin(self):
+        #todo реализовать проверку на выигрыш
+        return True

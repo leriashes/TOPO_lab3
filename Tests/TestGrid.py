@@ -217,3 +217,8 @@ class TestGrid(unittest.TestCase):
         grid.moveCell(x, y)
 
         self.assertEqual(grid.getCellValue(x + 1, y), value)
+
+    def testGridCheckWin(self):
+        grid = Grid()
+        
+        self.assertIs(grid.checkWin(), True)
