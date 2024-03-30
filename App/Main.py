@@ -1,5 +1,5 @@
-from pickle import TRUE
 import pygame as pg
+from datetime import datetime as dt
 from App.Const import *
 from App.Const import RIGHT_COLOR
 from App.Grid import Grid
@@ -7,6 +7,8 @@ from App.Grid import Grid
 grid = Grid()
 mouseReady = True
 steps = 0
+time = 0
+timestamp = 0
 
 def drawGrid(window):
     for i in range(4):
@@ -58,13 +60,18 @@ def update():
                     mouseReady = False
 
 def main():
+    global time
 
     grid.shuffleCells()
 
     pg.init()
     pg.display.set_caption("Пятнашки")
+    img = pg.image.load('15.png')
+    pg.display.set_icon(img)
 
     window = pg.display.set_mode((WIDTH, HEIGHT))
+
+    timestamp = dt.now()
 
     while True:
         for event in pg.event.get():
@@ -73,7 +80,13 @@ def main():
 
         window.fill(BG_COLOR)
 
-        pg.display.set_caption("Пятнашки Ходы: " + str(steps))
+        tstmp = dt.now()
+
+        if (tstmp - timestamp).total_seconds() >= 1:
+            time += 1
+            timestamp = tstmp
+
+        pg.display.set_caption("Пятнашки | Ходы: " + str(steps) + "    Время: " + str(time // 60).rjust(2, '0') + ":" + str(time % 60).rjust(2, '0'))
         drawGrid(window)
 
         update()
