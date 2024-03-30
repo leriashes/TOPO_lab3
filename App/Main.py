@@ -6,6 +6,7 @@ from App.Grid import Grid
 
 grid = Grid()
 mouseReady = True
+steps = 0
 
 def drawGrid(window):
     for i in range(4):
@@ -39,6 +40,7 @@ def update():
 
     mx, my = mousePos[0], mousePos[1]
     global mouseReady
+    global steps
     
     if not mouseClick:
         mouseReady = True
@@ -51,6 +53,8 @@ def update():
                 
                 if (x <= mx <= x + CELL_SIZE) and (y <= my <= y + CELL_SIZE):
                     result = grid.moveCell(i, j)
+                    if result:
+                        steps += 1
                     mouseReady = False
 
 def main():
@@ -69,6 +73,7 @@ def main():
 
         window.fill(BG_COLOR)
 
+        pg.display.set_caption("Пятнашки Ходы: " + str(steps))
         drawGrid(window)
 
         update()
