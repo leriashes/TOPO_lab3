@@ -227,3 +227,11 @@ class TestGrid(unittest.TestCase):
         grid = Grid()
         grid.shuffleCells()
         self.assertIs(grid.checkWin(), False)
+
+    def testGridCheckCompletable1514(self):
+        grid = Grid()
+        values = [i % 16 for i in range (1, 17)]
+        values[14] = 14
+        values[13] = 15
+
+        grid.checkCompletable(values)

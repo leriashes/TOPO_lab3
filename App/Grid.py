@@ -12,6 +12,9 @@ class Grid(object):
     def getCellValue(self, x:int, y:int):
         return self.cells[x * 4 + y].getValue()
 
+    def checkCompletable(self, values):
+        return False
+
     def shuffleCells(self):
         values = [i % 16 for i in range(1, 17)]
         random.shuffle(values)
