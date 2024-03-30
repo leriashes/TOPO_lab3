@@ -222,3 +222,8 @@ class TestGrid(unittest.TestCase):
         grid = Grid()
         
         self.assertIs(grid.checkWin(), True)
+
+    def testGridCheckWinAfterShuffle(self):
+        grid = Grid()
+        grid.shuffleCells()
+        self.assertIs(grid.checkWin(), False)

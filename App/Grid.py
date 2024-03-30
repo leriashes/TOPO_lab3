@@ -40,5 +40,7 @@ class Grid(object):
                 return cell.getCoords()
 
     def checkWin(self):
-        #todo реализовать проверку на выигрыш
+        for i in range(16):
+            if self.cells[i].getValue() != (i + 1) % 16:
+                return False
         return True
