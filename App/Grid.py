@@ -1,3 +1,4 @@
+import random
 from App.Cell import Cell
 
 class Grid(object):
@@ -12,9 +13,11 @@ class Grid(object):
         return self.cells[x * 4 + y].getValue()
 
     def shuffleCells(self):
-        #todo реализовать перемешивание €чеек
-        self.cells[0].setValue(0)
-        self.cells[15].setValue(1)
+        values = [i % 16 for i in range(1, 17)]
+        random.shuffle(values)
+
+        for i in range(16):
+            self.cells[i].setValue(values[i])
 
     def moveCell(self, x, y):
         value = self.getCellValue(x, y)

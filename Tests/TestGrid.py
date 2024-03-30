@@ -131,3 +131,31 @@ class TestGrid(unittest.TestCase):
 
         self.assertEqual(grid.getCellValue(x, y - 1), value)
 
+    def testGridMoveCellTrueLefttAfterShuffle(self):
+        grid = Grid()
+        grid.shuffleCells()
+        x, y = grid.getEmptyCellCoords()
+
+        while y == 0:
+            grid.shuffleCells()
+            x, y = grid.getEmptyCellCoords()
+
+        y -= 1
+        grid.moveCell(x, y)
+
+        self.assertEqual(grid.getCellValue(x, y), 0)
+
+    def testGridMoveCellTrueLeftAfterShuffleMove(self):
+        grid = Grid()
+        grid.shuffleCells()
+        x, y = grid.getEmptyCellCoords()
+
+        while y == 0:
+            grid.shuffleCells()
+            x, y = grid.getEmptyCellCoords()
+
+        y -= 1
+        value = grid.getCellValue(x, y)
+        grid.moveCell(x, y)
+
+        self.assertEqual(grid.getCellValue(x, y + 1), value)
