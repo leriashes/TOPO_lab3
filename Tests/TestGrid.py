@@ -159,3 +159,61 @@ class TestGrid(unittest.TestCase):
         grid.moveCell(x, y)
 
         self.assertEqual(grid.getCellValue(x, y + 1), value)
+        
+    def testGridMoveCellTrueDownAfterShuffle(self):
+        grid = Grid()
+        grid.shuffleCells()
+        x, y = grid.getEmptyCellCoords()
+
+        while x == 3:
+            grid.shuffleCells()
+            x, y = grid.getEmptyCellCoords()
+
+        x += 1
+        grid.moveCell(x, y)
+
+        self.assertEqual(grid.getCellValue(x, y), 0)
+
+    def testGridMoveCellTrueDownAfterShuffleMove(self):
+        grid = Grid()
+        grid.shuffleCells()
+        x, y = grid.getEmptyCellCoords()
+
+        while x == 3:
+            grid.shuffleCells()
+            x, y = grid.getEmptyCellCoords()
+
+        x += 1
+        value = grid.getCellValue(x, y)
+        grid.moveCell(x, y)
+
+        self.assertEqual(grid.getCellValue(x - 1, y), value)
+
+    def testGridMoveCellTrueUpAfterShuffle(self):
+        grid = Grid()
+        grid.shuffleCells()
+        x, y = grid.getEmptyCellCoords()
+
+        while x == 0:
+            grid.shuffleCells()
+            x, y = grid.getEmptyCellCoords()
+
+        x -= 1
+        grid.moveCell(x, y)
+
+        self.assertEqual(grid.getCellValue(x, y), 0)
+
+    def testGridMoveCellTrueDownAfterShuffleMove(self):
+        grid = Grid()
+        grid.shuffleCells()
+        x, y = grid.getEmptyCellCoords()
+
+        while x == 0:
+            grid.shuffleCells()
+            x, y = grid.getEmptyCellCoords()
+
+        x -= 1
+        value = grid.getCellValue(x, y)
+        grid.moveCell(x, y)
+
+        self.assertEqual(grid.getCellValue(x + 1, y), value)
