@@ -9,8 +9,10 @@ class Grid(object):
         for i in range(16):
             self.cells.append(Cell((i + 1) % 16, [i // 4, i % 4]))
     
+
     def getCellValue(self, x:int, y:int):
         return self.cells[x * 4 + y].getValue()
+
 
     def checkCompletable(self, values):
         N = 0
@@ -30,6 +32,7 @@ class Grid(object):
 
         return N % 2 == 0
 
+
     def shuffleCells(self):
         values = [i % 16 for i in range(1, 17)]
         
@@ -40,6 +43,7 @@ class Grid(object):
 
         for i in range(16):
             self.cells[i].setValue(values[i])
+
 
     def moveCell(self, x, y):
         value = self.getCellValue(x, y)
@@ -55,6 +59,7 @@ class Grid(object):
                 return True
             else:
                 return False
+
 
     def getEmptyCellCoords(self):
         for cell in self.cells:
