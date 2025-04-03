@@ -12,5 +12,3 @@ class Cell(object):
 
     def getCoords(self):
         return self.coords
-
-

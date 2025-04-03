@@ -32,8 +32,13 @@
     <Compile Include="Tests\__init__.py" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include=".github\workflows\" />
     <Folder Include="App\" />
+    <Folder Include=".github\" />
     <Folder Include="Tests\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include=".github\workflows\ci.yml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
