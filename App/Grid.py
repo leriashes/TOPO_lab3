@@ -14,6 +14,7 @@ class Grid(object):
 
     def checkCompletable(self, values):
         N = 0
+
         for i in range(16):
             if values[i] != 0:
                 k = 0
