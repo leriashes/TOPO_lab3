@@ -1,4 +1,4 @@
-#размеры
+# размеры
 CELL_SIZE = 100
 SPACE_SIZE = 10
 
@@ -8,7 +8,7 @@ MENU_HEIGHT = 2 * CELL_SIZE
 BUTTON_HEIGHT = 80
 BUTTON_WIDTH = (MENU_WIDTH - SPACE_SIZE * 3) // 2
 
-#цвета
+# цвета
 BG_COLOR = (229, 223, 214)
 WRONG_COLOR = (229, 180, 136)
 RIGHT_COLOR = (173, 230, 50)

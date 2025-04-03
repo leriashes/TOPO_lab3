@@ -1,6 +1,7 @@
 import unittest
 from App.Grid import Grid
 
+
 class TestGrid(unittest.TestCase):
 
     def testGridClassCreation(self):
@@ -10,7 +11,7 @@ class TestGrid(unittest.TestCase):
     def testGridShuffleCellsReturnValueInInterval(self):
         grid = Grid()
         grid.shuffleCells()
-        
+
         for i in range(16):
             cellValue = grid.getCellValue(i // 4, i % 4)
             self.assertIs(0 <= cellValue <= 15, True)
@@ -40,7 +41,7 @@ class TestGrid(unittest.TestCase):
 
             if (cellValue != (i + 1) % 16):
                 dif += 1
-             
+
         self.assertGreater(dif, 0)
 
     def testGridMoveCellTrue(self):
@@ -62,7 +63,7 @@ class TestGrid(unittest.TestCase):
         grid = Grid()
         x, y = 3, 2
         grid.moveCell(x, y)
-        
+
         self.assertEqual(grid.getCellValue(x, y), 0)
 
     def testGridMoveCellFalseResult(self):
@@ -70,14 +71,14 @@ class TestGrid(unittest.TestCase):
         x, y = 0, 0
         value = grid.getCellValue(x, y)
         grid.moveCell(x, y)
-        
+
         self.assertEqual(grid.getCellValue(x, y), value)
 
     def testGridMoveCellEmptyResult(self):
         grid = Grid()
         x, y = 3, 3
         grid.moveCell(x, y)
-        
+
         self.assertEqual(grid.getCellValue(x, y), 0)
 
     def testGridGetEmptyCellCoords(self):
@@ -99,7 +100,7 @@ class TestGrid(unittest.TestCase):
         x, y = grid.getEmptyCellCoords()
 
         grid.moveCell(x, y)
-        
+
         self.assertEqual(grid.getCellValue(x, y), 0)
 
     def testGridMoveCellTrueRightAfterShuffle(self):
@@ -159,7 +160,7 @@ class TestGrid(unittest.TestCase):
         grid.moveCell(x, y)
 
         self.assertEqual(grid.getCellValue(x, y + 1), value)
-        
+
     def testGridMoveCellTrueDownAfterShuffle(self):
         grid = Grid()
         grid.shuffleCells()
@@ -174,7 +175,7 @@ class TestGrid(unittest.TestCase):
 
         self.assertEqual(grid.getCellValue(x, y), 0)
 
-    def testGridMoveCellTrueDownAfterShuffleMove(self):
+    def testGridMoveCellTrueDownAfterShuffleMove2(self):
         grid = Grid()
         grid.shuffleCells()
         x, y = grid.getEmptyCellCoords()
@@ -220,7 +221,7 @@ class TestGrid(unittest.TestCase):
 
     def testGridCheckWin(self):
         grid = Grid()
-        
+
         self.assertIs(grid.checkWin(), True)
 
     def testGridCheckWinAfterShuffle(self):
@@ -230,7 +231,7 @@ class TestGrid(unittest.TestCase):
 
     def testGridCheckCompletable1514(self):
         grid = Grid()
-        values = [i % 16 for i in range (1, 17)]
+        values = [i % 16 for i in range(1, 17)]
         values[14] = 14
         values[13] = 15
 
@@ -238,7 +239,7 @@ class TestGrid(unittest.TestCase):
 
     def testGridCheckCompletableMove15(self):
         grid = Grid()
-        values = [i % 16 for i in range (1, 17)]
+        values = [i % 16 for i in range(1, 17)]
         values[14] = 0
         values[15] = 15
 
@@ -246,7 +247,7 @@ class TestGrid(unittest.TestCase):
 
     def testGridCheckCompletableMove12(self):
         grid = Grid()
-        values = [i % 16 for i in range (1, 17)]
+        values = [i % 16 for i in range(1, 17)]
         values[11] = 0
         values[15] = 12
 
@@ -254,6 +255,6 @@ class TestGrid(unittest.TestCase):
 
     def testGridCheckCompletableReverse(self):
         grid = Grid()
-        values = [16 - i for i in range (1, 17)]
+        values = [16 - i for i in range(1, 17)]
 
         self.assertIs(grid.checkCompletable(values), False)

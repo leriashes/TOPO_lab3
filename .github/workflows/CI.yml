@@ -1,0 +1,33 @@
+name: Python CI
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout репозитория
+        uses: actions/checkout@v3
+
+      - name: Установка Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+          
+      - name: Установка зависимостей
+        run: |
+             python -m pip install --upgrade pip
+             pip install -r requirements.txt
+
+      - name: Линтинг кода (flake8)
+        run: flake8 App Tests
+
+      - name: Запуск тестов (unittest)
+        run: python RunTests.py

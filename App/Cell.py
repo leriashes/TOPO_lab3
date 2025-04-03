@@ -1,6 +1,6 @@
 class Cell(object):
 
-    def __init__(self, value=0, coords=[0,0]):
+    def __init__(self, value=0, coords=[0, 0]):
         self.value = value
         self.coords = coords
 
@@ -12,5 +12,3 @@ class Cell(object):
 
     def getCoords(self):
         return self.coords
-
-
